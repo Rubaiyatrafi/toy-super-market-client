@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Superhero Action Figure",
+    "price": 19.99,
+    "description": "This action figure features a popular superhero character with superpowers. It is highly articulated and comes with interchangeable accessories for versatile play.",
+    "image": "https://example.com/superhero-action-figure.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Ninja Warrior Playset",
+    "price": 29.99,
+    "description": "Enter the world of stealth and adventure with this ninja warrior playset. It includes action figures, weapons, and a customizable training ground for exciting ninja battles.",
+    "image": "https://example.com/ninja-warrior-playset.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Battle Mech Robot",
+    "price": 39.99,
+    "description": "Take control of this powerful battle mech robot and engage in epic robot battles. It features lights, sound effects, and projectile launchers for action-packed play.",
+    "image": "https://example.com/battle-mech-robot.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Galactic Spaceship Set",
+    "price": 49.99,
+    "description": "Embark on interstellar missions with this galactic spaceship set. It includes a spaceship, astronauts, alien creatures, and various accessories for space exploration adventures.",
+    "image": "https://example.com/galactic-spaceship-set.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Dinosaur Adventure Playset",
+    "price": 24.99,
+    "description": "Travel back in time with this dinosaur adventure playset. It features realistic dinosaur figures, a jungle environment, and interactive elements for exciting prehistoric expeditions.",
+    "image": "https://example.com/dinosaur-adventure-playset.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Pirate Ship Playset",
+    "price": 34.99,
+    "description": "Sail the high seas with this pirate ship playset. It includes a pirate ship, pirate figures, treasure chests, and a working cannon for swashbuckling adventures and treasure hunts.",
+    "image": "https://example.com/pirate-ship-playset.jpg"
+  }
+]

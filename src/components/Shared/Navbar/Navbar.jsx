@@ -14,9 +14,9 @@ const Navbar = () => {
         </div>
         <div className="text-1xl font-bold font-serif  md:flex-row flex-col link-nav">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/alltoys">All Toys</NavLink>
           <NavLink to="/blog">Blog</NavLink>
-          <NavLink to="/recipe">Recipe</NavLink>
+          <NavLink to="/login">Login</NavLink>
           {/* {user ? (
             <>
               <h2>{user.displayname}</h2>
