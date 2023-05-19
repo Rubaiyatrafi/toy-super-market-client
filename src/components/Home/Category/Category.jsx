@@ -15,7 +15,12 @@ const Category = () => {
       {categoryDetails.map((category) => (
         <div key={category._id}>
           <div className="float-left category-container ">
-            <img className="category-img" src={category.picture} alt="" />
+            <img
+              // className="category-img"
+              className="category-img h-80 w-80"
+              src={category.picture}
+              alt=""
+            />
             <h1 className="text-2xl font-bold text-rose-900">
               {category.toy_name}
             </h1>

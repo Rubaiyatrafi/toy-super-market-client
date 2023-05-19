@@ -12,8 +12,8 @@ const ShopCategory = () => {
   }, []);
   return (
     <div className="mt-10">
-      <h1 className="text-center text-6xl font-bold text-rose-600 mb-10">
-        Shop by Your Favourite Category
+      <h1 className="text-center text-5xl font-bold text-rose-600 mb-10">
+        Shop by Your Favourite Action Category
       </h1>
       {categories.map((category) => (
         <div key={category.id}>
