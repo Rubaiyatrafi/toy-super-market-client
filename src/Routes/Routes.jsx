@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Home from "../components/Home/Home/Home";
 import Category from "../components/Home/Category/Category";
 import ToyDetails from "../components/Home/ToyDetails/ToyDetails";
+import NotFound from "../components/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/toydetails/${params.id}`),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound></NotFound>,
   },
 ]);
 
