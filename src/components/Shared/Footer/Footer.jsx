@@ -6,7 +6,7 @@ const Footer = () => {
         <img className="w-12 rounded-lg" src={logo} alt="" />
         <p className="font-bold text-xl">
           TOY Story Ltd. <br />
-          Providing reliable tech since 1992
+          Providing reliable Toys since 1992
         </p>
         <p>Copyright © 2023 - All right reserved</p>
       </div>

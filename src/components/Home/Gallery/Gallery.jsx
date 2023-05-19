@@ -8,7 +8,7 @@ import "./Gallery.css";
 const Gallery = () => {
   return (
     <div className="bg-slate-300 p-10 rounded-2xl">
-      <h1 className="text-center text-4xl mb-10 font-bold font-sans text-red-600">
+      <h1 className="text-center text-6xl mb-10 font-bold font-sans text-red-600">
         Welcome to our Gallery
       </h1>
 

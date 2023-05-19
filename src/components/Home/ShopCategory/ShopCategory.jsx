@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./ShopCategory.css";
 
 const ShopCategory = () => {
@@ -15,18 +15,14 @@ const ShopCategory = () => {
       <h1 className="text-center text-6xl font-bold text-rose-600 mb-10">
         Shop by Your Favourite Category
       </h1>
-      {/* {categories.map((category) => (
-        <div key={category.id}>
-          <div>
-            <NavLink>{category.category_name}</NavLink>
-          </div>
-        </div>
-      ))} */}
       {categories.map((category) => (
         <div key={category.id}>
-          <div>
-            <NavLink>{category.category_name}</NavLink>
-          </div>
+          <Link
+            className="float-left text-2xl font-bold text-sky-800 ml-28"
+            to={`/category/${category.id}`}
+          >
+            {category.category_name}
+          </Link>
         </div>
       ))}
     </div>

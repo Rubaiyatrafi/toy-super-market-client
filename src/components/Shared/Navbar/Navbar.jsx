@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="flex flex-col gap-3">
           <img className="w-12 rounded-lg" src={logo} alt="" />
           <h2 className="ml-2 text-4xl font-bold font-serif text-blue-950 title-name">
-            <span className="text-rose-700">Toy</span> Story
+            <span className="text-rose-700">Toy</span> Store
           </h2>
         </div>
         <div className="text-1xl font-bold font-serif  md:flex-row flex-col link-nav">
