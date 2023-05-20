@@ -22,31 +22,25 @@ const Navbar = () => {
             <span className="text-rose-700">Toy</span> Store
           </h2>
         </div>
-        <div className="text-1xl font-bold font-serif  md:flex-row flex-col link-nav">
+        <div className="text-1xl font-bold font-sans  md:flex-row flex-col link-nav">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/alltoys">All Toys</NavLink>
           <NavLink to="/blogs">Blogs</NavLink>
-          <NavLink to="/login">Login</NavLink>
-          {user && (
-            <span className="navbar md:flex-row  justify-between flex-col ">
-              <NavLink to="/addatoy">Add a Toy</NavLink>
-              <NavLink to="/mytoys">My Toys</NavLink>
-              {/* {user.email}{" "} */}
-              <button onClick={handleSignout}>
-                <NavLink>Signout</NavLink>
-              </button>
-            </span>
-          )}
-          {/* {user ? (
+
+          {user ? (
             <>
-              <h2>{user.displayname}</h2>
-              <NavLink>
-                <button onClick={handleLogout}>Sign Out</button>
-              </NavLink>
+              <span className="navbar md:flex-row  justify-between flex-col ">
+                <NavLink to="/addatoy">Add a Toy</NavLink>
+                <NavLink to="/mytoys">My Toys</NavLink>
+                {/* <h2>{user.email}</h2> */}
+                <button onClick={handleSignout}>
+                  <NavLink>Signout</NavLink>
+                </button>
+              </span>
             </>
           ) : (
             <NavLink to="/login">Login</NavLink>
-          )} */}
+          )}
         </div>
       </nav>
     </div>

@@ -91,14 +91,13 @@ const Login = () => {
                 />
                 <p className="p-1" onClick={() => setShowpass(!showpass)}>
                   {showpass ? (
-                    // <span>Hide Password</span>
-                    <button>
+                    <Link>
                       <FaRegEyeSlash></FaRegEyeSlash>
-                    </button>
+                    </Link>
                   ) : (
-                    <button>
+                    <Link>
                       <FaRegEye></FaRegEye>
-                    </button>
+                    </Link>
                   )}
                 </p>
                 <label className="text-sm">
