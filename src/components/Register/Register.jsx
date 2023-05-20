@@ -1,12 +1,38 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvier";
 
 const Register = () => {
-  const handleLogin = (event) => {
+  const [error, setError] = useState("");
+
+  const { createUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const handleSignup = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
+    const photo = form.photo.value;
     const password = form.password.value;
-    console.log(email, password);
+    console.log(name, email, photo, password);
+
+    setError("");
+
+    if (password.length < 6) {
+      setError("Your password must be at least Six charecters");
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        form.reset();
+        navigate("/");
+      })
+      .catch((error) => setError(error.message));
   };
   return (
     <div className="hero min-h-screen bg-base-200 login-container mt-10 mb-10 rounded-2xl">
@@ -28,7 +54,19 @@ const Register = () => {
             <h1 className="text-5xl font-bold text-center mb-10 text-rose-700">
               Sign up{" "}
             </h1>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleSignup}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -37,6 +75,18 @@ const Register = () => {
                   type="email"
                   name="email"
                   placeholder="email"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo URL</span>
+                </label>
+                <input
+                  type="url"
+                  name="photo"
+                  placeholder="photo URL"
                   className="input input-bordered"
                   required
                 />
@@ -53,6 +103,7 @@ const Register = () => {
                   required
                 />
               </div>
+              <p className="text-red-500">{error}</p>
               <div className="form-control mt-6">
                 <input
                   className="btn btn-secondary font-bold text-1xl"
@@ -61,6 +112,7 @@ const Register = () => {
                 />
               </div>
             </form>
+
             <p className="my-4 text-center">
               Already have an account?{" "}
               <Link className="text-orange-600 font-bold" to="/login">

@@ -1,9 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 import "./Login.css";
+import { useContext, useState } from "react";
+import { AuthContext } from "../Providers/AuthProvier";
 
 const Login = () => {
-  //   const { signIn } = useContext(AuthContext);
+  const [showpass, setShowpass] = useState(false);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -11,12 +20,30 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
-    // signIn(email, password)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     console.log(user);
-    //   })
-    //   .catch((error) => console.log(error));
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        form.reset();
+        setError("");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
+  };
+  const handleGoogleSignin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setError("");
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200 login-container mt-10 mb-10 rounded-2xl">
@@ -56,17 +83,30 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showpass ? "text" : "password"}
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                <p className="p-1" onClick={() => setShowpass(!showpass)}>
+                  {showpass ? (
+                    // <span>Hide Password</span>
+                    <button>
+                      <FaRegEyeSlash></FaRegEyeSlash>
+                    </button>
+                  ) : (
+                    <button>
+                      <FaRegEye></FaRegEye>
+                    </button>
+                  )}
+                </p>
+                <label className="text-sm">
+                  <a href="#" className="  link-hover">
                     Forgot password?
                   </a>
                 </label>
+                <p className="text-red-500">{error}</p>
               </div>
               <div className="form-control mt-6">
                 <input
@@ -74,6 +114,20 @@ const Login = () => {
                   type="submit"
                   value="Login"
                 />
+              </div>
+              <div className="form-control mt-10">
+                <div className="text-center text-xs mb-2 text-red-600">
+                  <h1>or Signup with</h1>
+                </div>
+                <button
+                  onClick={handleGoogleSignin}
+                  className="btn btn-outline btn-secondary"
+                >
+                  Login with Google{" "}
+                  <span className="text-xl ml-2 text-rose-400">
+                    <FaGoogle></FaGoogle>
+                  </span>
+                </button>
               </div>
             </form>
             <p className="my-4 text-center">

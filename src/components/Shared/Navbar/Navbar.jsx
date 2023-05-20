@@ -1,8 +1,18 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
 import "./Navbar.css";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvier";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleSignout = () => {
+    logOut()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div>
       <nav className="navbar md:flex-row  justify-between flex-col mt-10">
@@ -15,8 +25,18 @@ const Navbar = () => {
         <div className="text-1xl font-bold font-serif  md:flex-row flex-col link-nav">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/alltoys">All Toys</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
+          <NavLink to="/blogs">Blogs</NavLink>
           <NavLink to="/login">Login</NavLink>
+          {user && (
+            <span className="navbar md:flex-row  justify-between flex-col ">
+              <NavLink to="/addatoy">Add a Toy</NavLink>
+              <NavLink to="/mytoys">My Toys</NavLink>
+              {/* {user.email}{" "} */}
+              <button onClick={handleSignout}>
+                <NavLink>Signout</NavLink>
+              </button>
+            </span>
+          )}
           {/* {user ? (
             <>
               <h2>{user.displayname}</h2>
