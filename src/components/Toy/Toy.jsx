@@ -53,7 +53,7 @@ const Toy = ({ toy }) => {
               </p>
             </div>
             <div className="flex justify-evenly m-10">
-              <Link to={`/mytoys/${_id}`}>
+              <Link to={`/toys/${_id}`}>
                 <button className="btn btn-outline btn-primary">Update</button>
               </Link>
               <button

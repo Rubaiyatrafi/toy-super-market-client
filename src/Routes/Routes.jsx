@@ -85,10 +85,10 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/mytoys/${params.email}`),
       },
       {
-        path: "/mytoys/:id",
+        path: "/toys/:id",
         element: <UpdateToy></UpdateToy>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/mytoys/${params.id}`),
+          fetch(`http://localhost:5000/toys/${params.id}`),
       },
     ],
   },
