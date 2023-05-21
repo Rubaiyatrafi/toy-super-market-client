@@ -27,7 +27,9 @@ const router = createBrowserRouter([
         path: "/category/:id",
         element: <Category></Category>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/categories/${params.id}`),
+          fetch(
+            `https://toy-market-server-wine.vercel.app/categories/${params.id}`
+          ),
       },
       {
         path: "/toydetails/:id",
@@ -37,12 +39,15 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toydetails/${params.id}`),
+          fetch(
+            `https://toy-market-server-wine.vercel.app/toydetails/${params.id}`
+          ),
       },
       {
         path: "/alltoys",
         element: <AllToys></AllToys>,
-        loader: () => fetch("http://localhost:5000/toystore"),
+        loader: () =>
+          fetch("https://toy-market-server-wine.vercel.app/toystore"),
       },
       {
         path: "/toystore/:id",
@@ -52,7 +57,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toystore/${params.id}`),
+          fetch(
+            `https://toy-market-server-wine.vercel.app/toystore/${params.id}`
+          ),
       },
       {
         path: "/blogs",
@@ -82,13 +89,15 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/mytoys/${params.email}`),
+          fetch(
+            `https://toy-market-server-wine.vercel.app/mytoys/${params.email}`
+          ),
       },
       {
         path: "/toys/:id",
         element: <UpdateToy></UpdateToy>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(`https://toy-market-server-wine.vercel.app/toys/${params.id}`),
       },
     ],
   },

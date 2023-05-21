@@ -42,7 +42,7 @@ const UpdateToy = () => {
       description,
     };
     console.log(updateToys);
-    fetch(`http://localhost:5000/toys/${_id}`, {
+    fetch(`https://toy-market-server-wine.vercel.app/toys/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

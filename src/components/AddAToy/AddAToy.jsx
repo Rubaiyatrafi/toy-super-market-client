@@ -29,7 +29,7 @@ const AddAToy = () => {
       description,
     };
     console.log(newToys);
-    fetch("http://localhost:5000/toystore", {
+    fetch("https://toy-market-server-wine.vercel.app/toystore", {
       method: "POST",
       headers: {
         "content-type": "application/json",
