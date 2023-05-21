@@ -12,6 +12,7 @@ import AllToys from "../components/AllToys/AllToys";
 import Blogs from "../components/Blogs/Blogs";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import Checkout from "../components/Checkout/Checkout";
+import UpdateToy from "../components/UpdateToy/UpdateToy";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,12 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/mytoys/${params.email}`),
+      },
+      {
+        path: "/mytoys/:id",
+        element: <UpdateToy></UpdateToy>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/mytoys/${params.id}`),
       },
     ],
   },
