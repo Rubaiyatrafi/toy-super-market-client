@@ -1,11 +1,14 @@
+/* eslint-disable no-undef */
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
 import "./Navbar.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvier";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [dispName, setDisplayName] = useState(false);
+
   const handleSignout = () => {
     logOut()
       .then((result) => {
@@ -31,8 +34,15 @@ const Navbar = () => {
             <>
               <span className="navbar md:flex-row  justify-between flex-col ">
                 <NavLink to="/addatoy">Add a Toy</NavLink>
-                <NavLink to="/mytoys">My Toys</NavLink>
-                {/* <h2>{user.email}</h2> */}
+                <NavLink to={`/mytoys/${user.email}`}>My Toys</NavLink>
+                {dispName ? <h2>{user.displayName}</h2> : <h2></h2>}
+                <img
+                  onMouseEnter={() => setDisplayName(true)}
+                  onMouseLeave={() => setDisplayName(false)}
+                  className=" w-10 rounded-full"
+                  src={user.photoURL}
+                  alt=""
+                />
                 <button onClick={handleSignout}>
                   <NavLink>Signout</NavLink>
                 </button>

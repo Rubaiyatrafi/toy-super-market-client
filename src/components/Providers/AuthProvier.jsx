@@ -35,6 +35,9 @@ const AuthProvier = ({ children }) => {
     return signInWithPopup(auth, googleAuthProvider);
   };
 
+  const profileUser = auth.currentUser;
+  console.log(profileUser);
+
   const logOut = () => {
     return signOut(auth);
   };
@@ -55,6 +58,7 @@ const AuthProvier = ({ children }) => {
     createUser,
     signIn,
     signInWithGoogle,
+
     logOut,
   };
   return (
